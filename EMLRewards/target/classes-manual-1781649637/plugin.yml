@@ -1,0 +1,18 @@
+name: EML-Recompensas
+version: 1.0-SNAPSHOT
+
+main: org.EML.eMLRecompensas.EMLRecompensas
+paperPluginLoader: org.EML.eMLRecompensas.EMLRecompensasLoader
+api-version: '1.21.1'
+load: POSTWORLD
+commands:
+  emlrec:
+    description: Claim timed rewards.
+    usage: /emlrec
+permissions:
+  emlrecompensas.vip:
+    description: Allows players to claim the VIP reward.
+    default: false
+  emlrecompensas.admin:
+    description: Allows players to reload the plugin configuration.
+    default: op

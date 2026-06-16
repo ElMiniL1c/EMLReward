@@ -1,0 +1,59 @@
+rewards:
+  semanal:
+    enabled: true
+    name: "Recompensa semanal"
+    amount: 5000
+    cooldown-hours: 168
+    permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+  quincenal:
+    enabled: true
+    name: "Recompensa quincenal"
+    amount: 12000
+    cooldown-hours: 360
+    permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+  mensual:
+    enabled: true
+    name: "Recompensa mensual"
+    amount: 30000
+    cooldown-hours: 720
+    permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+  vip:
+    enabled: true
+    name: "Recompensa VIP"
+    amount: 15000
+    cooldown-hours: 168
+    permission: "emlrecompensas.vip"
+    commands:
+      - "eco give %player% %amount%"
+
+  semestral:
+    enabled: true
+    name: "Recompensa de 48 horas"
+    amount: 100000
+    required-playtime-hours: 48
+    permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+messages:
+  header: "&6&lRecompensas disponibles"
+  info-line: "&e/recompensas reclamar %key% &7- &f%reward% &8(&a$%amount%&8)"
+  usage: "&cUso: /recompensas reclamar <semanal|quincenal|mensual|vip|semestral>"
+  claimed: "&aHas reclamado: &f%reward%&a."
+  cooldown: "&cAun no puedes reclamar esta recompensa. Espera &f%time%&c."
+  playtime-missing: "&cNecesitas jugar &f%time% &cmas para reclamar esta recompensa."
+  already-claimed-once: "&cEsta recompensa solo se puede reclamar una vez."
+  no-permission: "&cNo tienes permiso para usar esta recompensa."
+  reward-disabled: "&cEsta recompensa esta desactivada."
+  unknown-reward: "&cEsa recompensa no existe."
+  only-players: "Este comando solo puede usarlo un jugador."
+  reload: "&aConfiguracion recargada."

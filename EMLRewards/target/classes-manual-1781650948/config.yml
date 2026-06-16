@@ -1,0 +1,149 @@
+settings:
+  # EN: Default language. To add more languages, create another file in the lang folder
+  # EN: and set this value to the file name without ".yml".
+  # ES: Idioma por defecto. Para agregar mas idiomas, crea otro archivo en la carpeta lang
+  # ES: y coloca aqui el nombre del archivo sin ".yml".
+  language: "en"
+  fallback-language: "en"
+
+permissions:
+  # EN: Admin permission. Players with this permission can use every admin command.
+  # ES: Permiso de admin. Los jugadores con este permiso pueden usar todos los comandos admin.
+  admin: "emlrec.admin"
+
+  # EN: Custom reward permissions must always start with "emlrec".
+  # ES: Los permisos personalizados de recompensas siempre deben empezar con "emlrec".
+  # EN: Good examples: emlrec.vip, emlrec.rank.hero, emlrec.rewards.special
+  # ES: Buenos ejemplos: emlrec.vip, emlrec.rank.hero, emlrec.rewards.special
+  # EN: Bad examples: vip.reward, myserver.reward
+  # ES: Malos ejemplos: vip.reward, myserver.reward
+  custom-prefix: "emlrec"
+
+rewards:
+  # EN: Available claim settings:
+  # ES: Opciones disponibles para reclamar:
+  #
+  #   claim.once: true/false
+  #     EN: true  = the reward can only be claimed one time.
+  #     ES: true  = la recompensa solo se puede reclamar una vez.
+  #     EN: false = the reward can be claimed again after the cooldown.
+  #     ES: false = la recompensa se puede reclamar otra vez despues del cooldown.
+  #
+  #   claim.cooldown-hours: number
+  #     EN: 0   = no cooldown.
+  #     ES: 0   = sin cooldown.
+  #     EN: 24  = once every 24 hours.
+  #     ES: 24  = una vez cada 24 horas.
+  #     EN: 168 = once every 7 days.
+  #     ES: 168 = una vez cada 7 dias.
+  #
+  # EN: Available requirements:
+  # ES: Condiciones disponibles:
+  #
+  #   requirements.playtime-hours: number
+  #     EN: 0  = disabled.
+  #     ES: 0  = desactivado.
+  #     EN: 48 = player must have at least 48 hours played.
+  #     ES: 48 = el jugador debe tener al menos 48 horas jugadas.
+  #
+  #   requirements.minimum-level: number
+  #     EN: 0  = disabled.
+  #     ES: 0  = desactivado.
+  #     EN: 10 = player must have at least level 10.
+  #     ES: 10 = el jugador debe tener al menos nivel 10.
+  #
+  #   requirements.maximum-level: number
+  #     EN: -1 = disabled.
+  #     ES: -1 = desactivado.
+  #     EN: 30 = player must be level 30 or lower.
+  #     ES: 30 = el jugador debe ser nivel 30 o menor.
+  #
+  #   requirements.world: text
+  #     EN: "" = disabled.
+  #     ES: "" = desactivado.
+  #     EN: "world_nether" = player must be in that world.
+  #     ES: "world_nether" = el jugador debe estar en ese mundo.
+  #
+  #   requirements.permission: text
+  #     EN: "" = disabled.
+  #     ES: "" = desactivado.
+  #     EN: "emlrec.example" = player must have that permission.
+  #     ES: "emlrec.example" = el jugador debe tener ese permiso.
+  #     EN: Custom permissions must always start with "emlrec".
+  #     ES: Los permisos personalizados siempre deben empezar con "emlrec".
+  #
+  # EN: Useful command placeholders:
+  # ES: Variables utiles para los comandos:
+  #   %player% = EN: player name / ES: nombre del jugador
+  #   %uuid% = EN: player UUID / ES: UUID del jugador
+  #   %amount% = EN: reward amount / ES: cantidad de la recompensa
+  #   %reward% = EN: internal reward id / ES: id interno de la recompensa
+
+  money_example:
+    # EN: Example: money reward with a cooldown.
+    # ES: Ejemplo: recompensa de dinero con cooldown.
+    # EN: Players can claim it every 24 hours.
+    # ES: Los jugadores pueden reclamarla cada 24 horas.
+    enabled: true
+    command-name: "money"
+    name: "Money reward"
+    amount: 5000
+    permission: ""
+    claim:
+      once: false
+      cooldown-hours: 24
+    requirements:
+      playtime-hours: 0
+      minimum-level: 0
+      maximum-level: -1
+      world: ""
+      permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+  item_example:
+    # EN: Example: item reward that can only be claimed once.
+    # ES: Ejemplo: recompensa de objetos que solo se puede reclamar una vez.
+    # EN: You can add more commands to give multiple items.
+    # ES: Puedes agregar mas comandos para dar varios objetos.
+    enabled: true
+    command-name: "kit"
+    name: "Starter item reward"
+    amount: 0
+    permission: ""
+    claim:
+      once: true
+      cooldown-hours: 0
+    requirements:
+      playtime-hours: 0
+      minimum-level: 0
+      maximum-level: -1
+      world: ""
+      permission: ""
+    commands:
+      - "give %player% diamond 3"
+      - "give %player% golden_apple 2"
+
+  rank_example:
+    # EN: Example: rank reward with a playtime condition.
+    # ES: Ejemplo: recompensa de rango con condicion de tiempo jugado.
+    # EN: This requires 48 hours played and can only be claimed once.
+    # ES: Requiere 48 horas jugadas y solo se puede reclamar una vez.
+    # EN: Change the command to match your permissions plugin.
+    # ES: Cambia el comando segun el plugin de permisos que uses.
+    enabled: true
+    command-name: "rank"
+    name: "Playtime rank reward"
+    amount: 0
+    permission: "emlrec.rank.reward"
+    claim:
+      once: true
+      cooldown-hours: 0
+    requirements:
+      playtime-hours: 48
+      minimum-level: 0
+      maximum-level: -1
+      world: ""
+      permission: ""
+    commands:
+      - "lp user %player% parent add vip"

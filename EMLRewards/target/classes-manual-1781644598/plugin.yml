@@ -1,0 +1,20 @@
+name: EML-Recompensas
+version: 1.0-SNAPSHOT
+
+main: org.EML.eMLRecompensas.EMLRecompensas
+paperPluginLoader: org.EML.eMLRecompensas.EMLRecompensasLoader
+api-version: '1.21.1'
+load: POSTWORLD
+commands:
+  recompensas:
+    description: Reclama recompensas por tiempo.
+    usage: /recompensas
+    aliases:
+      - rewards
+permissions:
+  emlrecompensas.vip:
+    description: Permite reclamar la recompensa VIP.
+    default: false
+  emlrecompensas.admin:
+    description: Permite recargar la configuracion del plugin.
+    default: op

@@ -1,0 +1,115 @@
+settings:
+  # Default language. To add more languages, create another file in the lang folder
+  # and set this value to the file name without ".yml".
+  language: "en"
+  fallback-language: "en"
+
+permissions:
+  # Admin permission. Players with this permission can use every admin command.
+  admin: "emlrec.admin"
+
+  # Custom reward permissions must always start with "emlrec".
+  # Good examples: emlrec.vip, emlrec.rank.hero, emlrec.rewards.special
+  # Bad examples: vip.reward, myserver.reward
+  custom-prefix: "emlrec"
+
+rewards:
+  # Available claim settings:
+  #   claim.once: true/false
+  #     true  = the reward can only be claimed one time.
+  #     false = the reward can be claimed again after the cooldown.
+  #
+  #   claim.cooldown-hours: number
+  #     0  = no cooldown.
+  #     24 = once every 24 hours.
+  #     168 = once every 7 days.
+  #
+  # Available requirements:
+  #   requirements.playtime-hours: number
+  #     0  = disabled.
+  #     48 = player must have at least 48 hours played.
+  #
+  #   requirements.minimum-level: number
+  #     0  = disabled.
+  #     10 = player must have at least level 10.
+  #
+  #   requirements.maximum-level: number
+  #     -1 = disabled.
+  #     30 = player must be level 30 or lower.
+  #
+  #   requirements.world: text
+  #     "" = disabled.
+  #     "world_nether" = player must be in that world.
+  #
+  #   requirements.permission: text
+  #     "" = disabled.
+  #     "emlrec.example" = player must have that permission.
+  #     Custom permissions must always start with "emlrec".
+  #
+  # Useful command placeholders:
+  #   %player% = player name
+  #   %uuid% = player UUID
+  #   %amount% = reward amount
+  #   %reward% = internal reward id
+
+  money_example:
+    # Example: money reward with a cooldown.
+    # Players can claim it every 24 hours.
+    enabled: true
+    command-name: "money"
+    name: "Money reward"
+    amount: 5000
+    permission: ""
+    claim:
+      once: false
+      cooldown-hours: 24
+    requirements:
+      playtime-hours: 0
+      minimum-level: 0
+      maximum-level: -1
+      world: ""
+      permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+  item_example:
+    # Example: item reward that can only be claimed once.
+    # You can add more commands to give multiple items.
+    enabled: true
+    command-name: "kit"
+    name: "Starter item reward"
+    amount: 0
+    permission: ""
+    claim:
+      once: true
+      cooldown-hours: 0
+    requirements:
+      playtime-hours: 0
+      minimum-level: 0
+      maximum-level: -1
+      world: ""
+      permission: ""
+    commands:
+      - "give %player% diamond 3"
+      - "give %player% golden_apple 2"
+
+  rank_example:
+    # Example: rank reward with a playtime condition.
+    # This requires 48 hours played and can only be claimed once.
+    # Change the command to match your permissions plugin.
+    enabled: true
+    command-name: "rank"
+    name: "Playtime rank reward"
+    amount: 0
+    permission: "emlrec.rank.reward"
+    claim:
+      once: true
+      cooldown-hours: 0
+    requirements:
+      playtime-hours: 48
+      minimum-level: 0
+      maximum-level: -1
+      world: ""
+      permission: ""
+    commands:
+      - "lp user %player% parent add vip"

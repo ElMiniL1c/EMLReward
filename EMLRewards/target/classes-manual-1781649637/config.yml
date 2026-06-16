@@ -1,0 +1,55 @@
+settings:
+  # Default language. Create a new file in the lang folder and put its code here to add more languages.
+  language: "en"
+  fallback-language: "en"
+
+rewards:
+  semanal:
+    enabled: true
+    command-name: "weekly"
+    name: "Weekly reward"
+    amount: 5000
+    cooldown-hours: 168
+    permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+  quincenal:
+    enabled: true
+    command-name: "biweekly"
+    name: "Biweekly reward"
+    amount: 12000
+    cooldown-hours: 360
+    permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+  mensual:
+    enabled: true
+    command-name: "monthly"
+    name: "Monthly reward"
+    amount: 30000
+    cooldown-hours: 720
+    permission: ""
+    commands:
+      - "eco give %player% %amount%"
+
+  vip:
+    enabled: true
+    command-name: "vip"
+    name: "VIP reward"
+    amount: 15000
+    cooldown-hours: 168
+    permission: "emlrecompensas.vip"
+    commands:
+      - "eco give %player% %amount%"
+
+  semestral:
+    enabled: true
+    command-name: "playtime"
+    name: "48-hour playtime reward"
+    amount: 100000
+    required-playtime-hours: 48
+    permission: ""
+    commands:
+      - "eco give %player% %amount%"
